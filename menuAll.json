@@ -1,0 +1,47 @@
+[
+    {
+        "index": 0,
+        "name": "home",
+        "text": "Home",
+        "submenus": [
+            {
+                "index": 0,
+                "name": "home1",
+                "text": "Home1",
+                "submenus": [
+                    {
+                        "index": 0,
+                        "name": "home2",
+                        "text": "Home2",
+                        "submenus": [],
+                        "link": "home"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "index": 1,
+        "name": "about",
+        "text": "About",
+        "submenus": []
+    },
+    {
+        "index": 2,
+        "name": "menu1",
+        "text": "menu1",
+        "submenus": []
+    },
+    {
+        "index": 3,
+        "name": "menu2",
+        "text": "menu2",
+        "submenus": []
+    },
+    {
+        "index": 4,
+        "name": "menu3",
+        "text": "menu3",
+        "submenus": []
+    }
+]

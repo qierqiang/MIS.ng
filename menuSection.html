@@ -1,0 +1,21 @@
+<button type="button" class="start-button">菜单</button>
+
+<div class="menuArea">
+    <nav>
+        <ul class="menus">
+            <li ng-repeat="m in menuSection.menus">
+                <a href="javascript:void(0)" ng-click="tabControl.openTab">{{ m.text }}</a>
+                <ul>
+                    <li ng-repeat="sm1 in m.submenus">
+                        <a href="javascript:void(0)">{{ sm1.text }}</a>
+                        <ul>
+                            <li ng-repeat="sm2 in sm1.submenus">
+                                <a href="javascript:void(0)">{{ sm2.text }}</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</div>

@@ -1,0 +1,49 @@
+*{margin: 0; padding: 0; border: 0px;}
+.topbar { position: absolute; height: 130px; top:0px; left: 0px; right: 0px; background-color: gray; overflow: hidden; }
+.leftbar{ position: absolute; top: 130px; left: 0px; width: 130px; bottom: 0px; background-color: darkgray; overflow: auto; }
+.main{ position: absolute; top: 130px; left: 130px; right: 0px; bottom: 0px; overflow: auto; }
+
+.border-radius(@radius){
+	-webkit-border-radius: 	@radius;
+	-moz-border-radius: 	@radius;
+	border-radius: 			@radius;
+}
+.box-shadow(@params1, @params2){
+	-webkit-box-shadow: @params1, @params2;
+	-moz-box-shadow: 	@params1, @params2;
+	box-shadow: 		@params1, @params2;
+}
+.transition(@params){
+	-webkit-transition: @params;
+	-moz-transition: 	@params;
+	-o-transition: 		@params;
+	-ms-transition: 	@params;
+	transition: 		@params;
+}
+
+/*开始菜单*/
+.start-button {
+	@bcolor: #569824; @fcolor: #fff; @active-bcolor: #9adc68; @active-fcolor: #000;
+	
+    display: inline-block;
+	position: absolute;
+    left: 10px;
+    bottom: 10px;
+    width: 60px;
+    height: 60px;
+	text-align: center;
+	text-decoration: none;
+	font: bold 12px/25px;
+    background-color: @bcolor;
+    color: @fcolor;
+    .border-radius(30px);
+	.box-shadow(1px 1px 1px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44));
+	.transition(all 0.15s ease);
+    opacity: .1;
+	&:hover { opacity: 1; }
+	&:active {
+		background-color: @active-bcolor;
+		color: @active-fcolor;
+		.box-shadow(none, none);
+	}
+}
