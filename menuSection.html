@@ -1,21 +1,46 @@
-<div class="menuArea">
-    <nav>
-        <ul class="menus">
-            <li ng-repeat="m in menuSection.menus">
-                <a href="javascript:void(0)" ng-click="tabControl.openTab">{{ m.text }}</a>
-                <ul>
-                    <li ng-repeat="sm1 in m.submenus">
-                        <a href="javascript:void(0)">{{ sm1.text }}</a>
-                        <ul>
-                            <li ng-repeat="sm2 in sm1.submenus">
-                                <a href="javascript:void(0)">{{ sm2.text }}</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
-</div>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapseNavBar" aria-expanded="false">
+                <span class="sr-only">选项</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
 
-<button type="button" class="start-button" ng-click="menuSection.troggleVisiable();">菜单</button>
+            <a href="javascript:;" class="navbar-brand">MIS</a>
+        </div>
+        
+        <div class="collapse navbar-collapse" id="collapseNavBar">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">菜单</a>
+                    <ul class="dropdown-menu"><!--一级-->
+                        <li ng-class="{'dropdown-submenu': menuSection.hasSub(m)}" ng-repeat="m in menuSection.menus">
+                            <a href="javascript:;">{{ m.text }}</a>
+                            <ul class="dropdown-menu" ng-if="menuSection.hasSub(m)"><!--二级-->
+                                <li ng-class="{'dropdown-submenu': menuSection.hasSub(m)}" ng-repeat="sm1 in m.submenus">
+                                    <a href="javascript:;">{{ sm1.text }}</a>
+                                    <ul class="dropdown-menu" ng-if="menuSection.hasSub(sm1)"><!--三级-->
+                                        <li ng-repeat="sm2 in sm1.submenus">
+                                            <a href="javascript:;">{{ sm2.text }}</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mr. Q <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="javascript:;">注销</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

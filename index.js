@@ -2,13 +2,21 @@
 
     var app = angular.module("app", []);
 
-    app.controller("tabController", function () {
-        this.tabs = [{ name: "welcome", title: "欢迎页", url: "welcome.html" }, { name: "page1", title: "页面1", url: "page1.html" }, { name: "page2", title: "页面2", url: "page2.html" }, { name: "page3", title: "页面3", url: "page3.html" }];
+    app.controller("tabController", ["$http", function ($http) {
+        this.tabHeaders = [];
+        this.tabPages = [];
         this.curTabName = "welcome";
+        this.hoverTabName = "";
         this.setCurTab = function (tabName) {
             this.curTabName = tabName;
         };
-    });
+        this.openTab = function (name, title, url, fixed) {
+            this.tabHeaders.push({ name: name, title: title, fixed: fixed });
+            this.tabPages.push({ name: name, url: url });
+        };
+        
+        this.openTab("welcome", "欢迎页", "welcome.html", true);
+    }]);
 
     //菜单
     app.directive("menuSection", function () {
@@ -23,7 +31,7 @@
 
                 //判断菜单是否包含子项
                 this.hasSub = function (menu) {
-                    return result = menu.submenus == undefined || menu.submenus.length == 0;
+                    return menu.submenus != undefined && menu.submenus.length != 0;
                 };
 
                 //菜单是否显示
@@ -31,7 +39,7 @@
 
                 //切换菜单显示状态
                 this.troggleVisiable = function () {
-                    var h = this.isShow ? 0 : 540;
+                    var h = this.isShow ? 0 : document.body.scrollHeight;
                     angular.element(".menuArea").height(h);
                     this.isShow = !this.isShow;
                 };
