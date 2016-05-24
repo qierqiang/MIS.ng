@@ -20,14 +20,14 @@
     <div ng-controller="tabController as tabs">
         <div class="tab-content">
             <!--<iframe src="" frameborder="0" class="tab-pane fade"></iframe>-->
-            <div role="tabpanel" class="tab-pane fade" ng-class="{'active': tabs.curTabName == t.name, 'in': tabs.curTabName == t.name}"
+            <div role="tabpanel" class="tab-pane fade fill" ng-class="{'active': tabs.curTabName == t.name, 'in': tabs.curTabName == t.name}"
                 id="{{t.name}}" ng-repeat="t in tabs.tabPages">
-                <iframe src="{{t.url}}" frameborder="0"></iframe>
+                <iframe class="fill" src="{{t.url}}" frameborder="0"></iframe>
             </div>
         </div>
 
         <!-- Nav tabs -->
-        <div class="normal-bg-color">
+        <div class="tab-header">
             <ul class="nav nav-pills" role="tablist">
                 <li role="presentation" ng-class="{'active': tabs.curTabName == t.name}" ng-repeat="t in tabs.tabHeaders" name="{{t.name}}">
                     <a href="javascript:void(0)" aria-controls="{{t.name}}" role="tab" data-toggle="tab" ng-click="tabs.setCurTab(t.name)" ng-mouseenter="tabs.hoverTabName = t.name"
