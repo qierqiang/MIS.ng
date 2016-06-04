@@ -116,28 +116,5 @@
             }]
         };
     });
-
-    app.directive("tabControl", function () {
-        return {
-            restrict: "E",
-            templateUrl: "tabControl.html",
-            controllerAs: "tabControl",
-            controller: ["$http", function ($http) {
-                this.curTab = 0;
-                this.tabs = [];
-                this.selTab = function (tabIndex) {
-                    self.curTab = tabIndex;
-                };
-                this.openTab = function (url, name, title) {
-                    if (url)
-                        $http.get(url).then(function (response) {
-                            if (url == undefined || url.length == 0) return false;
-                            var tab = { url: url, name: name, title: title }
-                            tabs.push(tab);
-                            response.data;
-                        }, function () { })
-                };
-            }]
-        };
-    });
+    
 })();
