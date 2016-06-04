@@ -1,0 +1,14 @@
+.horizontal-scroll-container {
+  overflow: hidden;
+  height: 100px;
+  border: 1px solid rgba(10, 10, 10, 0.25);
+}
+.horizontal-scroll-left {
+  position: relative;
+  height: 100%;
+  float: left;
+  z-index: 1;
+  font-size: large;
+  display: block;
+  padding: 0% 4px;
+}

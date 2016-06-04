@@ -1,0 +1,22 @@
+@base-color: white;//基本背景色
+@light-forecolor: hsla(0, 0%, 4%, .25); //较淡的前景色
+@border: 1px solid @light-forecolor; //默认边框
+
+.horizontal-scroll-container {
+    overflow: hidden;
+    height: 100px;
+    border: @border;
+}
+
+.addon(@position) {
+    float: @position;
+}
+.horizontal-scroll-left {
+    position: relative;
+    height: 100%;
+    .addon(left);
+    z-index: 1;
+    font-size: large;
+    display: block;
+    padding: 0% 4px;
+}

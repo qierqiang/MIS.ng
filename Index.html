@@ -19,7 +19,6 @@
     <!-- Tab panes -->
     <div ng-controller="tabController as tabs">
         <div class="tab-content">
-            <!--<iframe src="" frameborder="0" class="tab-pane fade"></iframe>-->
             <div role="tabpanel" class="tab-pane fade" ng-class="{'active': tabs.curTabName == t.name, 'in': tabs.curTabName == t.name}"
                 id="{{t.name}}" ng-repeat="t in tabs.tabPages">
                 <iframe src="{{t.url}}" frameborder="0"></iframe>
@@ -27,7 +26,15 @@
         </div>
 
         <!-- Nav tabs -->
-        <div class="normal-bg-color">
+        <div class="tab-head">
+            <!-- Split button -->
+            <div class="btn-group dropup">
+                <button type="button" class="btn btn-primary">Action</button>
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                </button>
+            </div>
             <ul class="nav nav-pills" role="tablist">
                 <li role="presentation" ng-class="{'active': tabs.curTabName == t.name}" ng-repeat="t in tabs.tabHeaders" name="{{t.name}}">
                     <a href="javascript:void(0)" aria-controls="{{t.name}}" role="tab" data-toggle="tab" ng-click="tabs.setCurTab(t.name)" ng-mouseenter="tabs.hoverTabName = t.name"
